@@ -4,6 +4,7 @@
 Animopedia is an animal encyclopedia application that allows you to explore the endless species of animal kindgdom at a brief and better understand the living beings around us.
 
 
+
 ## Authors
 
 - [Mellacheruvu Janakirama Sarma](https://github.com/Janaki2000) [2021SP93012]
