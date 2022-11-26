@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "337978442231",
+    "project_id": "techogram-20226",
+    "storage_bucket": "techogram-20226.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:337978442231:android:72238d1b6c377ebc3aeef2",
+        "android_client_info": {
+          "package_name": "com.example.techogram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "337978442231-3hno1jklguqbvj4rgeioin5k273vmcku.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBz9qD_NEvt8YX_uNVxXX0nGfkDPCmMn0w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "337978442231-3hno1jklguqbvj4rgeioin5k273vmcku.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "337978442231-0scnajvuk84f0keee77ehosoiva2b48u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.techogram"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
