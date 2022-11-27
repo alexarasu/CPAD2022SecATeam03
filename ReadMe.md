@@ -1,8 +1,8 @@
 
-# Animopedia: A dedicated Animal Encylopedia
+# TECHNOGRAM: A DEVELOPER BASED COMMUNITY APPLICATION
 
-Animopedia is an animal encyclopedia application that allows you to explore the endless species of animal kindgdom at a brief and better understand the living beings around us.
-
+Technogram is a dev-centric community application for developers to join and make communtities and work on projects together.
+Unlike other applications out there, this provides a forum that is community based and is centered towards building projects and enhancing skills.
 
 ## Authors
 
