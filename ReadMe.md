@@ -4,7 +4,6 @@
 Technogram is a dev-centric community application for developers to join and make communtities and work on projects together.
 Unlike other applications out there, this provides a forum that is community based and is centered towards building projects and enhancing skills.
 
-GIT CHECK 
 
 ## Authors
 
