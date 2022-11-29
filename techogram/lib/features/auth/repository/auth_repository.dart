@@ -38,7 +38,6 @@ class AuthRepository {
       UserCredential userCredential =
           await _auth.signInWithCredential(credential);
       print(userCredential.user?.displayName);
-      print(userCredential.user?.email);
     } catch (e) {
       print(e);
     }
