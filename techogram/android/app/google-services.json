@@ -22,6 +22,14 @@
           }
         },
         {
+          "client_id": "177739275020-c5rlfqfee1pudlt1ortu5h2d9d8gcgsi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.techogram",
+            "certificate_hash": "01bb40c2101d6a1816977ab9b3469fd4bf1e9848"
+          }
+        },
+        {
           "client_id": "177739275020-osulh75mtjaf90v6kv1hstsgsmcf5mgr.apps.googleusercontent.com",
           "client_type": 3
         }
