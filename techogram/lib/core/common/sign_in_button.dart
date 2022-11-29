@@ -7,8 +7,8 @@ import 'package:techogram/theme/pallete.dart';
 class SignInButton extends ConsumerWidget {
   const SignInButton({Key? key}) : super(key: key);
 
-  void signInWithGoogle(WidgetRef ref) {
-    ref.read(authControllerProvider).signInWithGoogle();
+  void signInWithGoogle(BuildContext context, WidgetRef ref) {
+    ref.read(authControllerProvider.notifier).signInWithGoogle(context);
   }
 
   @override
@@ -17,7 +17,7 @@ class SignInButton extends ConsumerWidget {
       padding: const EdgeInsets.all(18.0),
       child: ElevatedButton.icon(
         // return ElevatedButton.icon(
-        onPressed: () => signInWithGoogle(ref),
+        onPressed: () => signInWithGoogle(context, ref),
         icon: Image.asset(
           Constants.googlePath,
           width: 35,
