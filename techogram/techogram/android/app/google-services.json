@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "177739275020",
+    "project_id": "techogram-cpad",
+    "storage_bucket": "techogram-cpad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177739275020:android:6800e16d7917c488ed0729",
+        "android_client_info": {
+          "package_name": "com.example.techogram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "177739275020-647221ieqpq1ga57t296trs0m3mh4eac.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.techogram",
+            "certificate_hash": "67ec15715a6e1ff48fc623e7c2e15cb751d35964"
+          }
+        },
+        {
+          "client_id": "177739275020-c5rlfqfee1pudlt1ortu5h2d9d8gcgsi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.techogram",
+            "certificate_hash": "01bb40c2101d6a1816977ab9b3469fd4bf1e9848"
+          }
+        },
+        {
+          "client_id": "177739275020-osulh75mtjaf90v6kv1hstsgsmcf5mgr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIG3feoisJ2bL14kZSWX8SN6ARrJmHNmA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "177739275020-osulh75mtjaf90v6kv1hstsgsmcf5mgr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "177739275020-aq2l5d24tvri896hsb915f3q635t0b85.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.techogram"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
