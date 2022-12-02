@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:techogram/core/common/error_text.dart';
 import 'package:techogram/core/common/loader.dart';
 import 'package:techogram/core/common/post_card.dart';
+import 'package:techogram/core/constants/constants.dart';
 import 'package:techogram/features/auth/controlller/auth_controller.dart';
 import 'package:techogram/features/community/controller/community_controller.dart';
 import 'package:techogram/models/community_model.dart';
@@ -35,16 +36,21 @@ class CommunityScreen extends ConsumerWidget {
               headerSliverBuilder: (context, innerBoxIsScrolled) {
                 return [
                   SliverAppBar(
-                    expandedHeight: 150,
+                    expandedHeight: 250,
                     floating: true,
                     snap: true,
                     flexibleSpace: Stack(
                       children: [
                         Positioned.fill(
-                          child: Image.network(
-                            community.banner,
+                          child: Image.asset(
+                            Constants.bannerDefault,
                             fit: BoxFit.cover,
                           ),
+
+                          // child: Image.asset(
+                          //   community.banner,
+                          //   fit: BoxFit.cover,
+                          // ),
                         ),
                       ],
                     ),
@@ -57,8 +63,8 @@ class CommunityScreen extends ConsumerWidget {
                           Align(
                             alignment: Alignment.topLeft,
                             child: CircleAvatar(
-                              backgroundImage: NetworkImage(community.avatar),
-                              radius: 35,
+                              backgroundImage: AssetImage(Constants.logoPath),
+                              radius: 50,
                             ),
                           ),
                           const SizedBox(height: 5),
@@ -70,14 +76,13 @@ class CommunityScreen extends ConsumerWidget {
                                 style: const TextStyle(
                                   fontSize: 19,
                                   fontWeight: FontWeight.bold,
+                                  color: Colors.greenAccent,
                                 ),
                               ),
                               if (!isGuest)
                                 community.mods.contains(user.uid)
                                     ? OutlinedButton(
-                                        onPressed: () {
-                                          navigateToModTools(context);
-                                        },
+                                        onPressed: () {},
                                         style: ElevatedButton.styleFrom(
                                           shape: RoundedRectangleBorder(
                                             borderRadius:
@@ -86,11 +91,17 @@ class CommunityScreen extends ConsumerWidget {
                                           padding: const EdgeInsets.symmetric(
                                               horizontal: 25),
                                         ),
-                                        child: const Text('Mod Tools'),
+                                        child: const Text(
+                                          'Join Community',
+                                          style: const TextStyle(
+                                            color: Colors.greenAccent,
+                                          ),
+                                        ),
                                       )
                                     : OutlinedButton(
-                                        onPressed: () => joinCommunity(
-                                            ref, community, context),
+                                        onPressed: () => {
+                                          print("Working on it dev !"),
+                                        },
                                         style: ElevatedButton.styleFrom(
                                           shape: RoundedRectangleBorder(
                                             borderRadius:
@@ -101,8 +112,8 @@ class CommunityScreen extends ConsumerWidget {
                                         ),
                                         child: Text(
                                             community.members.contains(user.uid)
-                                                ? 'Joined'
-                                                : 'Join'),
+                                                ? 'Join Community'
+                                                : 'Join community'),
                                       ),
                             ],
                           ),

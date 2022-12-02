@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:techogram/core/common/error_text.dart';
 import 'package:techogram/core/common/loader.dart';
 import 'package:techogram/core/common/sign_in_button.dart';
+import 'package:techogram/core/constants/constants.dart';
 import 'package:techogram/features/auth/controlller/auth_controller.dart';
 import 'package:techogram/features/community/controller/community_controller.dart';
 import 'package:techogram/models/community_model.dart';
@@ -44,9 +45,9 @@ class CommunityListDrawer extends ConsumerWidget {
                           final community = communities[index];
                           return ListTile(
                             leading: CircleAvatar(
-                              backgroundImage: NetworkImage(community.avatar),
+                              backgroundImage: AssetImage(Constants.logoPath),
                             ),
-                            title: Text('r/${community.name}'),
+                            title: Text('${community.name}'),
                             onTap: () {
                               navigateToCommunity(context, community);
                             },

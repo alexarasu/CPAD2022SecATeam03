@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:techogram/core/common/error_text.dart';
 import 'package:techogram/core/common/loader.dart';
 import 'package:techogram/core/common/post_card.dart';
+import 'package:techogram/core/constants/constants.dart';
 import 'package:techogram/features/auth/controlller/auth_controller.dart';
 import 'package:techogram/features/user_profile/controller/user_profile_controller.dart';
 import 'package:routemaster/routemaster.dart';
@@ -15,7 +16,7 @@ class UserProfileScreen extends ConsumerWidget {
   });
 
   void navigateToEditUser(BuildContext context) {
-    Routemaster.of(context).push('/edit-profile/$uid');
+    print("TRYNNA DO IT DEV !");
   }
 
   @override
@@ -32,8 +33,8 @@ class UserProfileScreen extends ConsumerWidget {
                     flexibleSpace: Stack(
                       children: [
                         Positioned.fill(
-                          child: Image.network(
-                            user.banner,
+                          child: Image.asset(
+                            Constants.bannerDefault,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -42,7 +43,7 @@ class UserProfileScreen extends ConsumerWidget {
                           padding:
                               const EdgeInsets.all(20).copyWith(bottom: 70),
                           child: CircleAvatar(
-                            backgroundImage: NetworkImage(user.profilePic),
+                            backgroundImage: AssetImage(Constants.logoPath),
                             radius: 45,
                           ),
                         ),
@@ -58,7 +59,12 @@ class UserProfileScreen extends ConsumerWidget {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 25),
                             ),
-                            child: const Text('Edit Profile'),
+                            child: const Text(
+                              'Edit Profile',
+                              style: const TextStyle(
+                                color: Colors.greenAccent,
+                              ),
+                            ),
                           ),
                         ),
                       ],
@@ -73,10 +79,11 @@ class UserProfileScreen extends ConsumerWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'u/${user.name}',
+                                '${user.name}',
                                 style: const TextStyle(
                                   fontSize: 19,
                                   fontWeight: FontWeight.bold,
+                                  color: Colors.greenAccent,
                                 ),
                               ),
                             ],
@@ -84,7 +91,7 @@ class UserProfileScreen extends ConsumerWidget {
                           Padding(
                             padding: const EdgeInsets.only(top: 10),
                             child: Text(
-                              '${user.karma} karma',
+                              '',
                             ),
                           ),
                           const SizedBox(height: 10),

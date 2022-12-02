@@ -67,7 +67,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           Builder(builder: (context) {
             return IconButton(
               icon: CircleAvatar(
-                backgroundImage: NetworkImage(user.profilePic),
+                backgroundImage: AssetImage(Constants.logoPath),
               ),
               onPressed: () => displayEndDrawer(context),
             );
