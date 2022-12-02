@@ -69,7 +69,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '177739275020',
     projectId: 'techogram-cpad',
     storageBucket: 'techogram-cpad.appspot.com',
-    iosClientId: '177739275020-aq2l5d24tvri896hsb915f3q635t0b85.apps.googleusercontent.com',
+    iosClientId:
+        '177739275020-aq2l5d24tvri896hsb915f3q635t0b85.apps.googleusercontent.com',
     iosBundleId: 'com.example.techogram',
   );
 }

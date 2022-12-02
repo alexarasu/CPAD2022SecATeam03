@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:techogram/core/constants/constants.dart';
-import 'package:techogram/features/auth/controller/auth_controller.dart';
+import 'package:techogram/features/auth/controlller/auth_controller.dart';
 import 'package:techogram/theme/pallete.dart';
 
 class SignInButton extends ConsumerWidget {
-  const SignInButton({Key? key}) : super(key: key);
+  final bool isFromLogin;
+  const SignInButton({Key? key, this.isFromLogin = true}) : super(key: key);
 
-  void signInWithGoogle(WidgetRef ref) {
-    ref.read(authControllerProvider).signInWithGoogle();
+  void signInWithGoogle(BuildContext context, WidgetRef ref) {
+    ref
+        .read(authControllerProvider.notifier)
+        .signInWithGoogle(context, isFromLogin);
   }
 
   @override
@@ -16,8 +19,7 @@ class SignInButton extends ConsumerWidget {
     return Padding(
       padding: const EdgeInsets.all(18.0),
       child: ElevatedButton.icon(
-        // return ElevatedButton.icon(
-        onPressed: () => signInWithGoogle(ref),
+        onPressed: () => signInWithGoogle(context, ref),
         icon: Image.asset(
           Constants.googlePath,
           width: 35,
