@@ -1,48 +1,81 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:techogram/responsive/mobile_screen_layout.dart';
-import 'package:techogram/responsive/responsive_layout_screen.dart';
-import 'package:techogram/responsive/web_screen_layout.dart';
-import 'package:techogram/screens/login_screen.dart';
-import 'package:techogram/screens/signup_screen.dart';
-import 'package:techogram/utils/colors.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:techogram/core/common/error_text.dart';
+import 'package:techogram/core/common/loader.dart';
+import 'package:techogram/features/auth/controlller/auth_controller.dart';
+import 'package:techogram/features/auth/screens/login_screen.dart';
+import 'package:techogram/firebase_options.dart';
+import 'package:techogram/models/user_model.dart';
+import 'package:techogram/router.dart';
+import 'package:techogram/theme/pallete.dart';
+import 'package:routemaster/routemaster.dart';
+import 'package:flutter/foundation.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   if (kIsWeb) {
     await Firebase.initializeApp(
       options: const FirebaseOptions(
-        apiKey: "AIzaSyDhQQ_su-ViShN1UOrL48eTdEIssrVTgn0",
-        appId: "1:337978442231:web:9fa57b8a0eae190b3aeef2",
-        messagingSenderId: "337978442231",
-        projectId: "techogram-20226",
-        storageBucket: "techogram-20226.appspot.com",
-      ),
+          apiKey: "AIzaSyDR3dmjJzMZ4cGt4lUpoNyRR5Q11rdTX84",
+          authDomain: "techogram-cpad.firebaseapp.com",
+          projectId: "techogram-cpad",
+          storageBucket: "techogram-cpad.appspot.com",
+          messagingSenderId: "177739275020",
+          appId: "1:177739275020:web:065f2911cd245817ed0729"),
     );
+  } else {
+    await Firebase.initializeApp();
   }
-  await Firebase.initializeApp();
-  runApp(const MyApp());
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerStatefulWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  ConsumerState<ConsumerStatefulWidget> createState() => _MyAppState();
+}
+
+class _MyAppState extends ConsumerState<MyApp> {
+  UserModel? userModel;
+
+  void getData(WidgetRef ref, User data) async {
+    userModel = await ref
+        .watch(authControllerProvider.notifier)
+        .getUserData(data.uid)
+        .first;
+    ref.read(userProvider.notifier).update((state) => userModel);
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Techogram',
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: webBackgroundColor,
-      ),
-      // home: ResponsiveLayout(
-      //   mobileScreenLayout: MobileScreenLayout(),
-      //   webScreenLayout: WebScreenLayout(),
-      // ),
-      home: SignUpScreen(),
-      //home: LoginScreen(),
-    );
+    return ref.watch(authStateChangeProvider).when(
+          data: (data) => MaterialApp.router(
+            debugShowCheckedModeBanner: false,
+            title: 'Reddit Tutorial',
+            theme: ref.watch(themeNotifierProvider),
+            routerDelegate: RoutemasterDelegate(
+              routesBuilder: (context) {
+                if (data != null) {
+                  getData(ref, data);
+                  if (userModel != null) {
+                    return loggedInRoute;
+                  }
+                }
+                return loggedOutRoute;
+              },
+            ),
+            routeInformationParser: const RoutemasterParser(),
+          ),
+          error: (error, stackTrace) => ErrorText(error: error.toString()),
+          loading: () => const Loader(),
+        );
   }
 }
